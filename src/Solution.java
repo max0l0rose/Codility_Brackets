@@ -24,16 +24,22 @@ public class Solution {
 				case '}':
 				case ']':
 					Character c2 = dq.pollFirst();
-					if (
-							!(c == ')' && c2 == '('
+					if (c2 == null
+						|| !(c == ')' && c2 == '('
 						|| c == '}' && c2 == '{'
-						|| c == ']' && Character.compare(c2,'[') == 0)
+						|| c == ']' && c2 == '[')
 					)
 						return 0;
 					break;
 			}
 		}
 
+		if(dq.size()>0)
+			return 0;
+
 		return 1;
 	}
+
 }
+
+
